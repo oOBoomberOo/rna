@@ -1,0 +1,39 @@
+{
+	"pools": {
+		"minecraft:entities/creeper/gunpowder": {
+			"type": "minecraft:item",
+			"name": "minecraft:gunpowder",
+			"functions": [
+				{
+					"function": "minecraft:set_count",
+					"count": {
+						"min": 0.0,
+						"max": 2.0,
+						"type": "minecraft:uniform"
+					}
+				},
+				{
+					"function": "minecraft:looting_enchant",
+					"count": {
+						"min": 0.0,
+						"max": 1.0
+					}
+				}
+			]
+		},
+		"minecraft:entities/creeper/music_discs": {
+			"type": "minecraft:tag",
+			"name": "minecraft:music_discs",
+			"expand": true,
+			"conditions": [
+				{
+					"condition": "minecraft:entity_properties",
+					"predicate": {
+						"type": "#minecraft:skeletons"
+					},
+					"entity": "killer"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,14 @@
+[package]
+name = "rna"
+version = "0.1.0"
+authors = ["Boomber <boomberisalreadytaken@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+colored = "1.9.2"
+clap = "2.33.0"
+serde_json = "1.0.48"
+serde = { version = "1.0.104", features = ["derive"] }
+regex = "1.3.4"
