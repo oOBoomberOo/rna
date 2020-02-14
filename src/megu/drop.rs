@@ -1,6 +1,7 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DropType {
 	Item,
+	LootTable,
 	Alternative
 }
 
@@ -42,6 +43,8 @@ impl MeguDrop {
 		let kind = match namespace.prefix.as_ref() {
 			"minecraft" => match namespace.suffix.as_ref() {
 				"item" => DropType::Item,
+				"loot_table" => DropType::LootTable,
+				"alternative" => DropType::Alternative,
 				_ => return Err(DropTypeError::InvalidType(value))
 			},
 			_ => return Err(DropTypeError::InvalidType(value))
@@ -51,15 +54,19 @@ impl MeguDrop {
 	}
 
 	pub fn from_drop_format(format: DropFormat) -> Result<MeguDrop, DropTypeError> {
-		let kind = MeguDrop::get_drop_type(format.r#type)?;
+		let kind = MeguDrop::get_drop_type(&format.r#type)?;
 		let name = format.name;
 		let conditions = format.condiions.unwrap_or_default();
 		let functions = format.functions.unwrap_or_default();
 
 		let r#unsafe = match format.r#unsafe {
 			Some(value) => value,
-			None => MeguDrop::is_unsafe(kind)
+			None => false
 		};
+
+		if r#unsafe != MeguDrop::is_unsafe(kind) {
+			return Err(DropTypeError::NotAllow(format.r#type));
+		}
 
 		let result = MeguDrop {
 			r#unsafe,
@@ -82,12 +89,24 @@ impl From<DropFormat> for MeguDrop {
 #[derive(Debug, PartialEq)]
 pub enum DropTypeError {
 	DecodeError(DecodeError),
+	NotAllow(String),
 	InvalidType(String)
 }
 
+use colored::*;
+use std::fmt;
 impl From<DecodeError> for DropTypeError {
 	fn from(error: DecodeError) -> DropTypeError {
 		DropTypeError::DecodeError(error)
+	}
+}
+impl fmt::Display for DropTypeError {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		match self {
+			DropTypeError::DecodeError(error) => write!(f, "{}", error),
+			DropTypeError::InvalidType(original) => write!(f, "'{}' is not a valid type name.", original.cyan()),
+			DropTypeError::NotAllow(kind) => write!(f, "'{}' is {} without {} keyword.", kind.cyan(), "not allow".red(), "unsafe".white().on_red()),
+		}
 	}
 }
 

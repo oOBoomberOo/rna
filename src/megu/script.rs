@@ -9,6 +9,8 @@ pub struct MeguScript {
 	remove: Vec<Namespace>
 }
 
+type PoolFormat = Result<HashMap<Namespace, MeguDrop>, drop::DropTypeError>;
+
 impl MeguScript {
 	fn new(extend: impl Into<Option<Extension>>, pools: impl Into<HashMap<Namespace, MeguDrop>>, remove: impl Into<Vec<Namespace>>) -> MeguScript {
 		let extend = extend.into();
@@ -17,7 +19,7 @@ impl MeguScript {
 		MeguScript { extend, pools, remove }
 	}
 
-	fn from_pools_format(format: HashMap<String, DropFormat>) -> Result<HashMap<Namespace, MeguDrop>, drop::DropTypeError> {
+	fn from_pools_format(format: HashMap<String, DropFormat>) -> PoolFormat {
 		let mut result = HashMap::default();
 
 		format
@@ -41,10 +43,22 @@ impl MeguScript {
 		};
 
 		let pools = MeguScript::from_pools_format(format.pools)?;
-		let remove: Result<Vec<Namespace>, DecodeError> = format.remove.into_iter().map(Namespace::decode).collect();
+		let remove: Result<Vec<Namespace>, DecodeError> = match format.remove {
+			Some(value) => value.into_iter().map(Namespace::decode).collect(),
+			None => Ok(Vec::default())
+		};
 		let remove = remove?;
 
 		let result = MeguScript::new(extend, pools, remove);
+
+		Ok(result)
+	}
+
+	pub fn from_path(path: impl Into<PathBuf>) -> Result<MeguScript, ReadError> {
+		let path = path.into();
+		let content = fs::read(path)?;
+		let format: ScriptFormat = js::from_slice(&content)?;
+		let result = MeguScript::from_script_format(format)?;
 
 		Ok(result)
 	}
@@ -55,12 +69,9 @@ use std::fs;
 use serde_json as js;
 impl From<PathBuf> for MeguScript {
 	fn from(path: PathBuf) -> MeguScript {
-		let content = fs::read(path).unwrap();
-		let format: ScriptFormat = js::from_slice(&content).unwrap();
-		MeguScript::from(format)
+		MeguScript::from_path(path).unwrap()
 	}
 }
-
 impl From<ScriptFormat> for MeguScript {
 	fn from(format: ScriptFormat) -> MeguScript {
 		MeguScript::from_script_format(format).unwrap()
@@ -72,11 +83,11 @@ use serde::{Serialize, Deserialize};
 struct ScriptFormat {
 	extend: Option<String>,
 	pools: HashMap<String, DropFormat>,
-	remove: Vec<String>
+	remove: Option<Vec<String>>
 }
 
-#[derive(Debug)]
-enum ScriptFormatError {
+#[derive(Debug, PartialEq)]
+pub enum ScriptFormatError {
 	Extension(ExtensionError),
 	DropType(drop::DropTypeError),
 	Decode(DecodeError)
@@ -87,16 +98,57 @@ impl From<ExtensionError> for ScriptFormatError {
 		ScriptFormatError::Extension(error)
 	}
 }
-
 impl From<drop::DropTypeError> for ScriptFormatError {
 	fn from(error: drop::DropTypeError) -> ScriptFormatError {
 		ScriptFormatError::DropType(error)
 	}
 }
-
 impl From<DecodeError> for ScriptFormatError {
 	fn from(error: DecodeError) -> ScriptFormatError {
 		ScriptFormatError::Decode(error)
+	}
+}
+impl fmt::Display for ScriptFormatError {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		match self {
+			ScriptFormatError::Extension(error) => write!(f, "{}", error),
+			ScriptFormatError::DropType(error) => write!(f, "{}", error),
+			ScriptFormatError::Decode(error) => write!(f, "{}", error),
+		}
+	}
+}
+
+use std::io;
+#[derive(Debug)]
+pub enum ReadError {
+	ScriptFormat(ScriptFormatError),
+	Io(io::Error),
+	Serde(js::Error)
+}
+
+use std::fmt;
+impl From<ScriptFormatError> for ReadError {
+	fn from(error: ScriptFormatError) -> ReadError {
+		ReadError::ScriptFormat(error)
+	}
+}
+impl From<io::Error> for ReadError {
+	fn from(error: io::Error) -> ReadError {
+		ReadError::Io(error)
+	}
+}
+impl From<js::Error> for ReadError {
+	fn from(error: js::Error) -> ReadError {
+		ReadError::Serde(error)
+	}
+}
+impl fmt::Display for ReadError {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		match self {
+			ReadError::ScriptFormat(error) => write!(f, "{}", error),
+			ReadError::Io(error) => write!(f, "{}", error),
+			ReadError::Serde(error) => write!(f, "{}", error),
+		}
 	}
 }
 
@@ -121,7 +173,6 @@ mod tests {
 	}
 
 	use crate::megu::drop::DropType;
-
 	#[test]
 	fn try_convert_pools() {
 		let value = r#"

@@ -25,7 +25,7 @@
 /// assert_eq!(namespace.prefix, "megumin");
 /// assert_eq!(namespace.suffix, "explosion");
 /// ```
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Clone, PartialEq, Eq, Hash)]
 pub struct Namespace {
 	/// String that come before `:`
 	pub prefix: String,
@@ -110,6 +110,7 @@ pub enum DecodeError {
 	TooManyColons(String)
 }
 
+use colored::*;
 /// Create Namespace from &str.  
 /// This will `unwrap()` error emit from `Namespace::decode()` function.
 impl From<&str> for Namespace {
@@ -117,10 +118,25 @@ impl From<&str> for Namespace {
 		Namespace::decode(value).unwrap()
 	}
 }
-
 impl From<regex::Error> for DecodeError {
 	fn from(error: regex::Error) -> DecodeError {
 		DecodeError::RegexError(error)
+	}
+}
+impl fmt::Display for DecodeError {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		match self {
+			DecodeError::RegexError(error) => write!(f, "{}", error),
+			DecodeError::InvalidNamespace(original) => write!(f, "'{}' contain invalid character ({})", original.red(), format!("/{}/", "^[a-z:\\d/_-]+$".yellow()).red()),
+			DecodeError::TooManyColons(original) => write!(f, "'{}' can only contain at most 1 colon.", original.cyan()),
+		}
+	}
+}
+
+use std::fmt;
+impl fmt::Debug for Namespace {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		write!(f, "{}:{}", self.prefix, self.suffix)
 	}
 }
 
