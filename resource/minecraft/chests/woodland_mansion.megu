@@ -1,0 +1,389 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/woodland_mansion/lead": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:lead",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/golden_apple": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:golden_apple",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/enchanted_golden_apple": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:enchanted_golden_apple",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/music_disc_13": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:music_disc_13",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/music_disc_cat": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:music_disc_cat",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/name_tag": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:name_tag",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/chainmail_chestplate": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:chainmail_chestplate",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/diamond_hoe": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:diamond_hoe",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/diamond_chestplate": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:diamond_chestplate",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/book": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:book",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_randomly"
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/iron_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/gold_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gold_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/bread": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bread",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/wheat": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:wheat",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/bucket": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bucket",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/redstone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:redstone",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/coal": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:coal",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/melon_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:melon_seeds",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/pumpkin_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:pumpkin_seeds",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/beetroot_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:beetroot_seeds",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/woodland_mansion/bone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bone",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 8,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/woodland_mansion/gunpowder": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gunpowder",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 8,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/woodland_mansion/rotten_flesh": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:rotten_flesh",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 8,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/woodland_mansion/string": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:string",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 8,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/dead_tube_coral_block": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dead_tube_coral_block",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

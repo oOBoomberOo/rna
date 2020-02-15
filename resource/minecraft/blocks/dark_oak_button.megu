@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/dark_oak_button": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dark_oak_button",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

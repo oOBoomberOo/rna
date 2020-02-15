@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/yellow_terracotta": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:yellow_terracotta",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

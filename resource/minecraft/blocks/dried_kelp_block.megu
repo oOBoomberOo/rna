@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/dried_kelp_block": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dried_kelp_block",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

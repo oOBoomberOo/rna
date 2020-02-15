@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/sheep/light_blue/light_blue_wool": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:light_blue_wool",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:entities/sheep/light_blue/entities/sheep": {
+            "unsafe": false,
+            "type": "minecraft:loot_table",
+            "name": "minecraft:entities/sheep",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

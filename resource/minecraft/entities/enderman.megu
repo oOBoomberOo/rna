@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/enderman/ender_pearl": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:ender_pearl",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 1,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:looting_enchant",
+                    "count": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/conduit": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:conduit",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

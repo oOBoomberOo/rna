@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/red_concrete": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:red_concrete",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

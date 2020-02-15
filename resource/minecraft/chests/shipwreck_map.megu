@@ -1,0 +1,96 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/shipwreck_map/map": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:map",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:exploration_map",
+                    "destination": "buried_treasure",
+                    "decoration": "red_x",
+                    "zoom": 1,
+                    "skip_existing_chunks": false
+                }
+            ],
+            "rolls": 1
+        },
+        "minecraft:chests/shipwreck_map/compass": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:compass",
+            "conditions": [],
+            "functions": [],
+            "rolls": 3
+        },
+        "minecraft:chests/shipwreck_map/map/1": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:map",
+            "conditions": [],
+            "functions": [],
+            "rolls": 3
+        },
+        "minecraft:chests/shipwreck_map/clock": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:clock",
+            "conditions": [],
+            "functions": [],
+            "rolls": 3
+        },
+        "minecraft:chests/shipwreck_map/paper": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:paper",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 10,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/shipwreck_map/feather": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:feather",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 5,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/shipwreck_map/book": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:book",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 5,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        }
+    }
+}

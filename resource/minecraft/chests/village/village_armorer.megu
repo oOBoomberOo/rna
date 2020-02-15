@@ -1,0 +1,71 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/village/village_armorer/iron_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_armorer/bread": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bread",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_armorer/iron_helmet": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_helmet",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_armorer/emerald": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:emerald",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        }
+    }
+}

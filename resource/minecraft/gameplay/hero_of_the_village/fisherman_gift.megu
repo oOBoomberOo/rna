@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:gift",
+    "pools": {
+        "minecraft:gameplay/hero_of_the_village/fisherman_gift/cod": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:cod",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/hero_of_the_village/fisherman_gift/salmon": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:salmon",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

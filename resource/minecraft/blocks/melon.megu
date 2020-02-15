@@ -1,0 +1,61 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/melon": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:melon",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/melon/melon_slice": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:melon_slice",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 3,
+                        "max": 7,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:uniform_bonus_count",
+                    "parameters": {
+                        "bonusMultiplier": 1
+                    }
+                },
+                {
+                    "function": "minecraft:limit_count",
+                    "limit": {
+                        "max": 9
+                    }
+                },
+                {
+                    "function": "minecraft:explosion_decay"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

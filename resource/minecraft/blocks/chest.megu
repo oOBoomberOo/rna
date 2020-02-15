@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/chest": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:chest",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:copy_name",
+                    "source": "block_entity"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

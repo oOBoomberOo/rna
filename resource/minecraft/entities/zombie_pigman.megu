@@ -1,0 +1,70 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/zombie_pigman/rotten_flesh": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:rotten_flesh",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 1,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:looting_enchant",
+                    "count": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        },
+        "minecraft:entities/zombie_pigman/gold_nugget": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gold_nugget",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 1,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:looting_enchant",
+                    "count": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        },
+        "minecraft:entities/zombie_pigman/gold_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gold_ingot",
+            "conditions": [
+                {
+                    "condition": "minecraft:killed_by_player"
+                },
+                {
+                    "condition": "minecraft:random_chance_with_looting",
+                    "chance": 0.025,
+                    "looting_multiplier": 0.01
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

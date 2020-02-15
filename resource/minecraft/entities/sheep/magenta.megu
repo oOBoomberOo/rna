@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/sheep/magenta/magenta_wool": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:magenta_wool",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:entities/sheep/magenta/entities/sheep": {
+            "unsafe": false,
+            "type": "minecraft:loot_table",
+            "name": "minecraft:entities/sheep",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

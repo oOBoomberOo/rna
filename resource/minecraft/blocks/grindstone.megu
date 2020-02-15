@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/grindstone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:grindstone",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:copy_name",
+                    "source": "block_entity"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

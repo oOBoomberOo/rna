@@ -1,0 +1,122 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/village/village_fletcher/emerald": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:emerald",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_fletcher/arrow": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:arrow",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_fletcher/feather": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:feather",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_fletcher/egg": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:egg",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_fletcher/flint": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:flint",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_fletcher/stick": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:stick",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        }
+    }
+}

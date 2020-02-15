@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/sheep/red/red_wool": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:red_wool",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:entities/sheep/red/entities/sheep": {
+            "unsafe": false,
+            "type": "minecraft:loot_table",
+            "name": "minecraft:entities/sheep",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

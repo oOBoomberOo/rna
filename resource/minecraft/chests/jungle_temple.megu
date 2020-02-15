@@ -1,0 +1,218 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/jungle_temple/diamond": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:diamond",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/iron_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 5,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/gold_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gold_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 7,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/bamboo": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bamboo",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/emerald": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:emerald",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/bone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bone",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 4,
+                        "max": 6,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/rotten_flesh": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:rotten_flesh",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 3,
+                        "max": 7,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/saddle": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:saddle",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/iron_horse_armor": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_horse_armor",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/golden_horse_armor": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:golden_horse_armor",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/diamond_horse_armor": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:diamond_horse_armor",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/jungle_temple/book": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:book",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": 30,
+                    "treasure": true
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 6,
+                "type": "minecraft:uniform"
+            }
+        }
+    }
+}

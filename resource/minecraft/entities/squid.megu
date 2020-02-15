@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/squid/ink_sac": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:ink_sac",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:looting_enchant",
+                    "count": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

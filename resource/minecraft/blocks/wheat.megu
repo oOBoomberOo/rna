@@ -1,0 +1,55 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/wheat": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:wheat",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:wheat",
+                    "properties": {
+                        "age": "7"
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/wheat/wheat_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:wheat_seeds",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/wheat/wheat_seeds/1": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:wheat_seeds",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:wheat",
+                    "properties": {
+                        "age": "7"
+                    }
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:binomial_with_bonus_count",
+                    "parameters": {
+                        "extra": 3,
+                        "probability": 0.5714286
+                    }
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

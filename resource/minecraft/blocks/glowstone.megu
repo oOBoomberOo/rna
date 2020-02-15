@@ -1,0 +1,62 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/glowstone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:glowstone",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/glowstone/glowstone_dust": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:glowstone_dust",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:uniform_bonus_count",
+                    "parameters": {
+                        "bonusMultiplier": 1
+                    }
+                },
+                {
+                    "function": "minecraft:limit_count",
+                    "limit": {
+                        "max": 4,
+                        "min": 1
+                    }
+                },
+                {
+                    "function": "minecraft:explosion_decay"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

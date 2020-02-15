@@ -1,0 +1,71 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/sweet_berry_bush/sweet_berries": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:sweet_berries",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:sweet_berry_bush",
+                    "properties": {
+                        "age": "3"
+                    }
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:uniform_bonus_count",
+                    "parameters": {
+                        "bonusMultiplier": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        },
+        "minecraft:blocks/sweet_berry_bush/sweet_berries/1": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:sweet_berries",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:sweet_berry_bush",
+                    "properties": {
+                        "age": "2"
+                    }
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:uniform_bonus_count",
+                    "parameters": {
+                        "bonusMultiplier": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

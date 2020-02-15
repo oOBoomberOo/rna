@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/orange_concrete_powder": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:orange_concrete_powder",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

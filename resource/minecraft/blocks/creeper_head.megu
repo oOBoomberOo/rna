@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/creeper_head": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:creeper_head",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

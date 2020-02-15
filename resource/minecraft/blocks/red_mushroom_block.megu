@@ -1,0 +1,53 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/red_mushroom_block": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:red_mushroom_block",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/red_mushroom_block/red_mushroom": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:red_mushroom",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": -6,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:limit_count",
+                    "limit": {
+                        "min": 0
+                    }
+                },
+                {
+                    "function": "minecraft:explosion_decay"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

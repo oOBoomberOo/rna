@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/tall_seagrass/seagrass": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:seagrass",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "item": "minecraft:shears"
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

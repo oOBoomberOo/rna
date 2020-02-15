@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/cat/string": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:string",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

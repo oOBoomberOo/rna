@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:gift",
+    "pools": {
+        "minecraft:gameplay/hero_of_the_village/armorer_gift/chainmail_helmet": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:chainmail_helmet",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/hero_of_the_village/armorer_gift/chainmail_chestplate": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:chainmail_chestplate",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/hero_of_the_village/armorer_gift/chainmail_leggings": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:chainmail_leggings",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/hero_of_the_village/armorer_gift/chainmail_boots": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:chainmail_boots",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

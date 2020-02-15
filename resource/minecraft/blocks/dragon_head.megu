@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/dragon_head": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dragon_head",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

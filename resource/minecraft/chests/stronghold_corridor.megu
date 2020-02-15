@@ -1,0 +1,293 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/stronghold_corridor/ender_pearl": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:ender_pearl",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/diamond": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:diamond",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/iron_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 5,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/gold_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gold_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/redstone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:redstone",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 4,
+                        "max": 9,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/bread": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bread",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/apple": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:apple",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/iron_pickaxe": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_pickaxe",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/iron_sword": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_sword",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/iron_chestplate": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_chestplate",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/iron_helmet": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_helmet",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/iron_leggings": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_leggings",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/iron_boots": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_boots",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/golden_apple": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:golden_apple",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/saddle": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:saddle",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/iron_horse_armor": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_horse_armor",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/golden_horse_armor": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:golden_horse_armor",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/diamond_horse_armor": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:diamond_horse_armor",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/stronghold_corridor/book": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:book",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_with_levels",
+                    "levels": 30,
+                    "treasure": true
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 3,
+                "type": "minecraft:uniform"
+            }
+        }
+    }
+}

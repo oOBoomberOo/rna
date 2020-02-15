@@ -1,0 +1,39 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/mycelium": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:mycelium",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/mycelium/dirt": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dirt",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

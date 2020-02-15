@@ -1,0 +1,43 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/tall_grass/grass": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:grass",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "item": "minecraft:shears"
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/tall_grass/wheat_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:wheat_seeds",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                },
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:tall_grass",
+                    "properties": {
+                        "half": "lower"
+                    }
+                },
+                {
+                    "condition": "minecraft:random_chance",
+                    "chance": 0.125
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

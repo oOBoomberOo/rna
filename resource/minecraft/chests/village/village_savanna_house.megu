@@ -1,0 +1,179 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/village/village_savanna_house/gold_nugget": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gold_nugget",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/grass": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:grass",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/tall_grass": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:tall_grass",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/bread": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bread",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/wheat_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:wheat_seeds",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 5,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/emerald": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:emerald",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/acacia_sapling": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:acacia_sapling",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/saddle": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:saddle",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/torch": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:torch",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_savanna_house/bucket": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bucket",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 3,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        }
+    }
+}

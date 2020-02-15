@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/smooth_red_sandstone_stairs": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:smooth_red_sandstone_stairs",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

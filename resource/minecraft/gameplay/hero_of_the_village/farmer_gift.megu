@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:gift",
+    "pools": {
+        "minecraft:gameplay/hero_of_the_village/farmer_gift/bread": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bread",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/hero_of_the_village/farmer_gift/pumpkin_pie": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:pumpkin_pie",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/hero_of_the_village/farmer_gift/cookie": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:cookie",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

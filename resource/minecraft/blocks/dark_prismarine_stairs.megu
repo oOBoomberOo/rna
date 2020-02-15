@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/dark_prismarine_stairs": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dark_prismarine_stairs",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

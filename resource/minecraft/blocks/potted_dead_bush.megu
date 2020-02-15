@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/potted_dead_bush/flower_pot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:flower_pot",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/potted_dead_bush/dead_bush": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dead_bush",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

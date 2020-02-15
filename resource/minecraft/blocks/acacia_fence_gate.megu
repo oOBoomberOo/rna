@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/acacia_fence_gate": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:acacia_fence_gate",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

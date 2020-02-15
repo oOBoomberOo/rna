@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/zombie_head": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:zombie_head",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

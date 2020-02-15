@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/snow_golem/snowball": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:snowball",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 15,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

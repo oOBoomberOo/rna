@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/red_nether_brick_stairs": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:red_nether_brick_stairs",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

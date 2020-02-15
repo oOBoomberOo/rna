@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/polished_granite_stairs": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:polished_granite_stairs",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/gray_bed": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gray_bed",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:gray_bed",
+                    "properties": {
+                        "part": "head"
+                    }
+                },
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

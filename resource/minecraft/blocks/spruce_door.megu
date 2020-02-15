@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/spruce_door": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:spruce_door",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:spruce_door",
+                    "properties": {
+                        "half": "lower"
+                    }
+                },
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

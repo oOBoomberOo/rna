@@ -1,0 +1,122 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/village/village_butcher/emerald": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:emerald",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_butcher/porkchop": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:porkchop",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_butcher/wheat": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:wheat",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_butcher/beef": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:beef",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_butcher/mutton": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:mutton",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/village/village_butcher/coal": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:coal",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 5,
+                "type": "minecraft:uniform"
+            }
+        }
+    }
+}

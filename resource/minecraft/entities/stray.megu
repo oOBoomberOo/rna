@@ -1,0 +1,86 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/stray/arrow": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:arrow",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:looting_enchant",
+                    "count": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        },
+        "minecraft:entities/stray/bone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bone",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:looting_enchant",
+                    "count": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        },
+        "minecraft:entities/stray/tipped_arrow": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:tipped_arrow",
+            "conditions": [
+                {
+                    "condition": "minecraft:killed_by_player"
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 1,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:looting_enchant",
+                    "count": {
+                        "min": 0,
+                        "max": 1
+                    },
+                    "limit": 1
+                },
+                {
+                    "function": "minecraft:set_nbt",
+                    "tag": "{Potion:\"minecraft:slowness\"}"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

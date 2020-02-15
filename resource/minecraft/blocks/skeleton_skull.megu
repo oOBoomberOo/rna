@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/skeleton_skull": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:skeleton_skull",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

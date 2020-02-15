@@ -1,0 +1,133 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/igloo_chest/apple": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:apple",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/igloo_chest/coal": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:coal",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/igloo_chest/gold_nugget": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gold_nugget",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/igloo_chest/stone_axe": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:stone_axe",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/igloo_chest/rotten_flesh": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:rotten_flesh",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/igloo_chest/emerald": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:emerald",
+            "conditions": [],
+            "functions": [],
+            "rolls": {
+                "min": 2,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/igloo_chest/wheat": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:wheat",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 8,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/igloo_chest/golden_apple": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:golden_apple",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

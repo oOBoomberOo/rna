@@ -1,0 +1,59 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/potatoes/potato": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:potato",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/potatoes/potato/1": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:potato",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:potatoes",
+                    "properties": {
+                        "age": "7"
+                    }
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:apply_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "formula": "minecraft:binomial_with_bonus_count",
+                    "parameters": {
+                        "extra": 3,
+                        "probability": 0.5714286
+                    }
+                }
+            ],
+            "rolls": 1
+        },
+        "minecraft:blocks/potatoes/poisonous_potato": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:poisonous_potato",
+            "conditions": [
+                {
+                    "condition": "minecraft:random_chance",
+                    "chance": 0.02
+                },
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:potatoes",
+                    "properties": {
+                        "age": "7"
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

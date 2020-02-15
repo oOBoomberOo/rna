@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/mule/leather": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:leather",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 0,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                },
+                {
+                    "function": "minecraft:looting_enchant",
+                    "count": {
+                        "min": 0,
+                        "max": 1
+                    }
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

@@ -1,48 +1,12 @@
 mod script;
 mod drop;
 mod namespace;
+mod extension;
 
 pub use script::{MeguScript, ReadError};
 pub use drop::{MeguDrop, DropType, DropFormat};
 pub use namespace::{Namespace, DecodeError};
-
-#[derive(Clone, Copy, PartialEq, Eq, Debug, PartialOrd)]
-enum Extension {
-	Creeper
-}
-
-fn get_extension(value: impl Into<String>) -> Result<Extension, ExtensionError> {
-	let value = value.into();
-	let namespace = Namespace::decode(&value)?;
-
-	let result = match namespace.suffix.as_ref() {
-		"entities/creeper" => Extension::Creeper,
-		_ => return Err(ExtensionError::NotFound(value))
-	};
-
-	Ok(result)
-}
-
-#[derive(Debug, PartialEq)]
-pub enum ExtensionError {
-	DecodeError(DecodeError),
-	NotFound(String)
-}
-
-impl From<DecodeError> for ExtensionError {
-	fn from(error: DecodeError) -> ExtensionError {
-		ExtensionError::DecodeError(error)
-	}
-}
-impl fmt::Display for ExtensionError {
-	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-		match self {
-			ExtensionError::DecodeError(error) => write!(f, "{}", error),
-			ExtensionError::NotFound(value) => write!(f, "Does not recognized '{}' in {} field.", value.cyan(), "extend".black().on_white())
-		}
-	}
-}
-
+pub use extension::{Extension, ExtensionError};
 
 use std::path::PathBuf;
 type MeguResult<T> = Result<T, MeguError>;
@@ -72,14 +36,15 @@ pub enum MeguError {
 	Read((PathBuf, ReadError))
 }
 
+use std::fmt;
+use colored::*;
+use std::error::Error;
 impl From<(PathBuf, ReadError)> for MeguError {
 	fn from(error: (PathBuf, ReadError)) -> MeguError {
 		MeguError::Read(error)
 	}
 }
-
-use std::fmt;
-use colored::*;
+impl Error for MeguError {}
 impl fmt::Display for MeguError {
 	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
 		match self {
@@ -88,6 +53,19 @@ impl fmt::Display for MeguError {
 			MeguError::Read((path, error)) => write!(f, "[{}] {}", path.display().to_string().green(), error)
 		}
 	}
+}
+
+pub fn merge(scripts: &[MeguScript]) -> Result<MeguScript, Box<dyn Error>> {
+	let mut result: MeguScript = MeguScript::default();
+
+	for script in scripts {
+		let script = script.compile()?;
+		script.merge(&mut result);
+	}
+
+	result.remove_drops();
+
+	Ok(result)
 }
 
 #[cfg(test)]

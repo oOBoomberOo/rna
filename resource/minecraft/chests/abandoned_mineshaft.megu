@@ -1,0 +1,344 @@
+{
+    "type": "minecraft:chest",
+    "pools": {
+        "minecraft:chests/abandoned_mineshaft/golden_apple": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:golden_apple",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:chests/abandoned_mineshaft/enchanted_golden_apple": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:enchanted_golden_apple",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:chests/abandoned_mineshaft/name_tag": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:name_tag",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:chests/abandoned_mineshaft/book": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:book",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:enchant_randomly"
+                }
+            ],
+            "rolls": 1
+        },
+        "minecraft:chests/abandoned_mineshaft/iron_pickaxe": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_pickaxe",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:chests/abandoned_mineshaft/iron_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:iron_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 5,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/gold_ingot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gold_ingot",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/redstone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:redstone",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 4,
+                        "max": 9,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/lapis_lazuli": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:lapis_lazuli",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 4,
+                        "max": 9,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/diamond": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:diamond",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 2,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/coal": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:coal",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 3,
+                        "max": 8,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/bread": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bread",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 3,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/melon_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:melon_seeds",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/pumpkin_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:pumpkin_seeds",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/beetroot_seeds": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:beetroot_seeds",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 2,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4,
+                "type": "minecraft:uniform"
+            }
+        },
+        "minecraft:chests/abandoned_mineshaft/rail": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:rail",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 4,
+                        "max": 8,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/abandoned_mineshaft/powered_rail": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:powered_rail",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/abandoned_mineshaft/detector_rail": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:detector_rail",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/abandoned_mineshaft/activator_rail": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:activator_rail",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 4,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        },
+        "minecraft:chests/abandoned_mineshaft/torch": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:torch",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 16,
+                        "type": "minecraft:uniform"
+                    }
+                }
+            ],
+            "rolls": 3
+        }
+    }
+}

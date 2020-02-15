@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/infested_stone/stone": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:stone",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

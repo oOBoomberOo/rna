@@ -33,6 +33,8 @@ pub struct Namespace {
 	pub suffix: String
 }
 
+const NAMESPACE_RULE: &str = r#"^[a-z:._\-/\d]+$"#;
+
 use regex::Regex;
 impl Namespace {
 	/// Manually create new Namespace
@@ -69,7 +71,7 @@ impl Namespace {
 	/// ```
 	pub fn decode(value: impl Into<String>) -> Result<Namespace, DecodeError> {
 		let value = value.into();
-		let namespace_validation = Regex::new(r#"^[a-z:\d/_-]+$"#)?;
+		let namespace_validation = Regex::new(&NAMESPACE_RULE)?;
 
 		if !namespace_validation.is_match(&value) {
 			return Err(DecodeError::InvalidNamespace(value));
@@ -127,7 +129,7 @@ impl fmt::Display for DecodeError {
 	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
 		match self {
 			DecodeError::RegexError(error) => write!(f, "{}", error),
-			DecodeError::InvalidNamespace(original) => write!(f, "'{}' contain invalid character ({})", original.red(), format!("/{}/", "^[a-z:\\d/_-]+$".yellow()).red()),
+			DecodeError::InvalidNamespace(original) => write!(f, "'{}' contain invalid character ({})", original.red(), format!("/{}/", NAMESPACE_RULE.yellow()).red()),
 			DecodeError::TooManyColons(original) => write!(f, "'{}' can only contain at most 1 colon.", original.cyan()),
 		}
 	}

@@ -1,0 +1,61 @@
+{
+    "type": "minecraft:gift",
+    "pools": {
+        "minecraft:gameplay/cat_morning_gift/rabbit_hide": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:rabbit_hide",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/cat_morning_gift/rabbit_foot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:rabbit_foot",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/cat_morning_gift/chicken": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:chicken",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/cat_morning_gift/feather": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:feather",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/cat_morning_gift/rotten_flesh": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:rotten_flesh",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/cat_morning_gift/string": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:string",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:gameplay/cat_morning_gift/phantom_membrane": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:phantom_membrane",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

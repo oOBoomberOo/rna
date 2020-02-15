@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/packed_ice": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:packed_ice",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

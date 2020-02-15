@@ -1,0 +1,39 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/fire_coral_block": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:fire_coral_block",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/fire_coral_block/dead_fire_coral_block": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dead_fire_coral_block",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

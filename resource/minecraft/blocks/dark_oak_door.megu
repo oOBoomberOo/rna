@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/dark_oak_door": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:dark_oak_door",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:dark_oak_door",
+                    "properties": {
+                        "half": "lower"
+                    }
+                },
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

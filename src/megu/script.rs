@@ -1,9 +1,10 @@
 use super::{Extension, Namespace, DecodeError, MeguDrop, DropFormat, ExtensionError};
 use super::drop;
-
+use std::error;
 use std::collections::HashMap;
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Clone, Default)]
 pub struct MeguScript {
+	kind: Option<String>,
 	extend: Option<Extension>,
 	pools: HashMap<Namespace, MeguDrop>,
 	remove: Vec<Namespace>
@@ -12,11 +13,12 @@ pub struct MeguScript {
 type PoolFormat = Result<HashMap<Namespace, MeguDrop>, drop::DropTypeError>;
 
 impl MeguScript {
-	fn new(extend: impl Into<Option<Extension>>, pools: impl Into<HashMap<Namespace, MeguDrop>>, remove: impl Into<Vec<Namespace>>) -> MeguScript {
+	fn new(kind: impl Into<Option<String>>, extend: impl Into<Option<Extension>>, pools: impl Into<HashMap<Namespace, MeguDrop>>, remove: impl Into<Vec<Namespace>>) -> MeguScript {
+		let kind = kind.into();
 		let extend = extend.into();
 		let pools = pools.into();
 		let remove = remove.into();
-		MeguScript { extend, pools, remove }
+		MeguScript { kind, extend, pools, remove }
 	}
 
 	fn from_pools_format(format: HashMap<String, DropFormat>) -> PoolFormat {
@@ -37,8 +39,9 @@ impl MeguScript {
 	}
 
 	fn from_script_format(format: ScriptFormat) -> Result<MeguScript, ScriptFormatError> {
+		let kind = format.kind;
 		let extend = match format.extend {
-			Some(value) => Some(super::get_extension(value)?),
+			Some(value) => Some(Extension::get_extension(value)?),
 			None => None
 		};
 
@@ -49,7 +52,7 @@ impl MeguScript {
 		};
 		let remove = remove?;
 
-		let result = MeguScript::new(extend, pools, remove);
+		let result = MeguScript::new(kind, extend, pools, remove);
 
 		Ok(result)
 	}
@@ -61,6 +64,38 @@ impl MeguScript {
 		let result = MeguScript::from_script_format(format)?;
 
 		Ok(result)
+	}
+
+	pub fn merge(&self, other: &mut MeguScript) {
+		for (key, value) in &self.pools {
+			other.pools.insert(key.clone(), value.clone());
+		}
+
+		other.remove.append(&mut self.remove.clone());
+	}
+
+	pub fn compile(&self) -> Result<MeguScript, Box<dyn error::Error>> {
+		let mut result: MeguScript = MeguScript::default();
+
+		if let Some(extension) = &self.extend {
+			let extension = extension.compile()?;
+			result.kind = extension.kind;
+			result.extend = extension.extend;
+			result.pools = extension.pools;
+			result.remove = extension.remove;
+		}
+
+		self.merge(&mut result);
+
+		Ok(result)
+	}
+
+	pub fn remove_drops(&mut self) -> Vec<Option<MeguDrop>> {
+		self.remove
+			.clone()
+			.iter()
+			.map(|namespace| self.pools.remove(&namespace))
+			.collect()
 	}
 }
 
@@ -81,6 +116,8 @@ impl From<ScriptFormat> for MeguScript {
 use serde::{Serialize, Deserialize};
 #[derive(Serialize, Deserialize)]
 struct ScriptFormat {
+	#[serde(rename = "type")]
+	kind: Option<String>,
 	extend: Option<String>,
 	pools: HashMap<String, DropFormat>,
 	remove: Option<Vec<String>>
@@ -151,6 +188,7 @@ impl fmt::Display for ReadError {
 		}
 	}
 }
+impl error::Error for ReadError {}
 
 #[cfg(test)]
 mod tests {
@@ -160,12 +198,16 @@ mod tests {
 	fn create_new_script() {
 		assert_eq!(
 			MeguScript::new(
-				Some(Extension::Creeper),
+				None,
+				Some(Extension::new("minecraft/entities/creeper")),
 				HashMap::default(),
 				Vec::default()
 			),
 			MeguScript {
-				extend: Some(Extension::Creeper),
+				kind: None,
+				extend: Some(Extension {
+					location: PathBuf::from("minecraft/entities/creeper")
+				}),
 				pools: HashMap::default(),
 				remove: Vec::default()
 			}
@@ -190,7 +232,8 @@ mod tests {
 		let mut expect: HashMap<Namespace, MeguDrop> = HashMap::default();
 		expect.insert(Namespace::new("minecraft", "test"), MeguDrop::new(
 			DropType::Item,
-			String::from("minecraft:emerald"),
+			Some("minecraft:emerald".to_string()),
+			None,
 			Vec::default(),
 			Vec::default(),
 			false

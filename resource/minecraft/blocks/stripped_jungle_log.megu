@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/stripped_jungle_log": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:stripped_jungle_log",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

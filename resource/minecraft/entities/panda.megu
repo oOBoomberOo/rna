@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/panda/bamboo": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:bamboo",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "count": 1
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

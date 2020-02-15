@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/potted_azure_bluet/flower_pot": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:flower_pot",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/potted_azure_bluet/azure_bluet": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:azure_bluet",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

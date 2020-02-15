@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/sunflower": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:sunflower",
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "minecraft:sunflower",
+                    "properties": {
+                        "half": "lower"
+                    }
+                },
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

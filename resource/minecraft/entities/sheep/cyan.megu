@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:entity",
+    "pools": {
+        "minecraft:entities/sheep/cyan/cyan_wool": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:cyan_wool",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:entities/sheep/cyan/entities/sheep": {
+            "unsafe": false,
+            "type": "minecraft:loot_table",
+            "name": "minecraft:entities/sheep",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

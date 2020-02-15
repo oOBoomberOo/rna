@@ -1,0 +1,54 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/gravel": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gravel",
+            "conditions": [
+                {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                        "enchantments": [
+                            {
+                                "enchantment": "minecraft:silk_touch",
+                                "levels": {
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/gravel/flint": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:flint",
+            "conditions": [
+                {
+                    "condition": "minecraft:table_bonus",
+                    "enchantment": "minecraft:fortune",
+                    "chances": [
+                        0.1,
+                        0.14285715,
+                        0.25,
+                        1
+                    ]
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        },
+        "minecraft:blocks/gravel/1": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:gravel",
+            "conditions": [],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

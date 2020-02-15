@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/cobblestone_stairs": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:cobblestone_stairs",
+            "conditions": [
+                {
+                    "condition": "minecraft:survives_explosion"
+                }
+            ],
+            "functions": [],
+            "rolls": 1
+        }
+    }
+}

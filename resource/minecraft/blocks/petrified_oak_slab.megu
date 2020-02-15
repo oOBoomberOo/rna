@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/petrified_oak_slab": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:petrified_oak_slab",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "conditions": [
+                        {
+                            "condition": "minecraft:block_state_property",
+                            "block": "minecraft:petrified_oak_slab",
+                            "properties": {
+                                "type": "double"
+                            }
+                        }
+                    ],
+                    "count": 2
+                },
+                {
+                    "function": "minecraft:explosion_decay"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

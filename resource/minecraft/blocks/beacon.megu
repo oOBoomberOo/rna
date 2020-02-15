@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/beacon": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:beacon",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:copy_name",
+                    "source": "block_entity"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}

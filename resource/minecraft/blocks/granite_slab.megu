@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:block",
+    "pools": {
+        "minecraft:blocks/granite_slab": {
+            "unsafe": false,
+            "type": "minecraft:item",
+            "name": "minecraft:granite_slab",
+            "conditions": [],
+            "functions": [
+                {
+                    "function": "minecraft:set_count",
+                    "conditions": [
+                        {
+                            "condition": "minecraft:block_state_property",
+                            "block": "minecraft:granite_slab",
+                            "properties": {
+                                "type": "double"
+                            }
+                        }
+                    ],
+                    "count": 2
+                },
+                {
+                    "function": "minecraft:explosion_decay"
+                }
+            ],
+            "rolls": 1
+        }
+    }
+}
