@@ -19,7 +19,7 @@ pub type MeguResult<T> = Result<T, MeguError>;
 /// - File does not exists
 /// - Path is a directory
 /// - There is syntax error inside the file
-pub fn interpret_file(path: impl Into<PathBuf>) -> MeguResult<MeguScript> {
+pub fn interpret_file(path: impl Into<PathBuf>, base_path: impl Into<PathBuf>) -> MeguResult<MeguScript> {
 	let path: PathBuf = path.into();
 	if !path.exists() {
 		return Err(MeguError::NotExist(path));
@@ -29,7 +29,7 @@ pub fn interpret_file(path: impl Into<PathBuf>) -> MeguResult<MeguScript> {
 		return Err(MeguError::NotAFile(path));
 	}
 
-	let result = match MeguScript::from_path(&path) {
+	let result = match MeguScript::from_path(&path, base_path) {
 		Ok(result) => result,
 		Err(error) => return Err(MeguError::Read((path, error)))
 	};
@@ -71,11 +71,12 @@ impl fmt::Display for MeguError {
 }
 
 /// Merge MeguScripts together.
-pub fn merge(scripts: &[MeguScript]) -> MeguResult<MeguScript> {
+pub fn merge(scripts: &[MeguScript], base_path: impl Into<PathBuf>) -> MeguResult<MeguScript> {
 	let mut result: MeguScript = MeguScript::default();
+	let base_path = base_path.into();
 
 	for script in scripts {
-		let script = match script.compile() {
+		let script = match script.compile(&base_path) {
 			Ok(script) => script,
 			Err(error) => return Err(MeguError::Merge(error))
 		};
@@ -95,6 +96,6 @@ mod tests {
 	#[should_panic]
 	fn try_interpret_non_existence_file() {
 		let path = PathBuf::from("/this/path/should/never/exists/EVER");
-		interpret_file(&path).unwrap();
+		interpret_file(&path, "resource").unwrap();
 	}
 }

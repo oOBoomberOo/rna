@@ -1,8 +1,5 @@
-use super::{DecodeError, MeguScript};
-// use std::path::PathBuf;
-use crate::megu::script::{ScriptFormat, ScriptFormatError};
-
-const DATABASE: &str = include_str!("../../resource/database.json");
+use super::{Namespace, DecodeError, MeguScript, ReadError};
+use std::path::PathBuf;
 
 /// Extension Script of MeguScript
 /// 
@@ -19,54 +16,42 @@ const DATABASE: &str = include_str!("../../resource/database.json");
 /// # use rna::Extension;
 /// let should_panic = Extension::get_extension("this/path/does/not/exists").unwrap();
 /// ```
-#[derive(Debug, PartialEq, Clone, Default)]
+#[derive(Clone, PartialEq, Eq, Debug, PartialOrd)]
 pub struct Extension {
-	// location: PathBuf
-	data: ScriptFormat
+	location: PathBuf
 }
 
-use serde_json as js;
-use std::collections::HashMap;
 impl Extension {
-	// pub fn new(location: impl Into<PathBuf>) -> Extension {
-	pub fn new(data: ScriptFormat) -> Extension {
-		// let location = location.into();
-		Extension {
-			// location
-			data
-		}
+	pub fn new(location: impl Into<PathBuf>) -> Extension {
+		let location = location.into();
+		Extension { location }
 	}
 
 	/// Get extension from given Namespace
-	pub fn get_extension(value: impl Into<String>) -> Result<Extension, ExtensionError> {
+	/// 
+	/// # Setting up
+	/// You need to include the source files for the loot table database yourself.
+	/// 
+	/// Which you need to place the file in this order: `{base_path}/{prefix}/{suffix}.ult` where `prefix` and `suffix` refer to Namespace
+	pub fn get_extension(value: impl Into<String>, base_path: impl Into<PathBuf>) -> Result<Extension, ExtensionError> {
 		let value = value.into();
-
-		let data: HashMap<String, ScriptFormat> = js::from_str(DATABASE).unwrap();
+		let namespace = Namespace::decode(&value)?;
 	
-		/*
-		let path = PathBuf::from(
-			format!("resource/{}/{}.megu", namespace.prefix, namespace.suffix)
-		);
+		let path: PathBuf = base_path.into();
+		let path = path
+			.join(namespace.prefix)
+			.join(format!("{}.ult", namespace.suffix));
 	
 		if !path.exists() {
 			return Err(ExtensionError::NotFound(value));
 		}
-		*/
-
-		if data.get(&value).is_none() {
-			return Err(ExtensionError::NotFound(value));
-		}
-
-		let data: ScriptFormat = data[&value].clone();
 	
-		// Ok(Extension::new(path))
-		Ok(Extension::new(data))
+		Ok(Extension::new(path))
 	}
 
 	/// Create MeguScript from this Extension
-	pub fn compile(&self) -> Result<MeguScript, ScriptFormatError> {
-		// MeguScript::from_path(&self.location)
-		MeguScript::from_script_format(self.data.clone())
+	pub fn compile(&self, base_path: impl Into<PathBuf>) -> Result<MeguScript, ReadError> {
+		MeguScript::from_path(&self.location, base_path)
 	}
 }
 

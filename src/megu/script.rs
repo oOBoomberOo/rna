@@ -43,10 +43,10 @@ impl MeguScript {
 	}
 
 	/// Create new MeguScript from `ScriptFormat` which is a template structure for `serde_json`
-	pub(crate) fn from_script_format(format: ScriptFormat) -> Result<MeguScript, ScriptFormatError> {
+	pub(crate) fn from_script_format(format: ScriptFormat, base_path: impl Into<PathBuf>) -> Result<MeguScript, ScriptFormatError> {
 		let kind = format.kind;
 		let extend = match format.extend {
-			Some(value) => Some(Extension::get_extension(value)?),
+			Some(value) => Some(Extension::get_extension(value, base_path)?),
 			None => None
 		};
 
@@ -75,11 +75,11 @@ impl MeguScript {
 	/// # use rna::MeguScript;
 	/// let script = MeguScript::from_path("path/to/loot_table.ult").unwrap();
 	/// ```
-	pub fn from_path(path: impl Into<PathBuf>) -> Result<MeguScript, ReadError> {
+	pub fn from_path(path: impl Into<PathBuf>, base_path: impl Into<PathBuf>) -> Result<MeguScript, ReadError> {
 		let path = path.into();
 		let content = fs::read(path)?;
 		let format: ScriptFormat = js::from_slice(&content)?;
-		let result = MeguScript::from_script_format(format)?;
+		let result = MeguScript::from_script_format(format, base_path)?;
 
 		Ok(result)
 	}
@@ -95,11 +95,11 @@ impl MeguScript {
 	}
 
 	/// Compile `Extension` inside `extend` (if not `None`).
-	pub fn compile(&self) -> Result<MeguScript, ReadError> {
+	pub fn compile(&self, base_path: impl Into<PathBuf>) -> Result<MeguScript, ReadError> {
 		let mut result: MeguScript = MeguScript::default();
 
 		if let Some(extension) = &self.extend {
-			let extension = extension.compile()?;
+			let extension = extension.compile(base_path)?;
 			result.kind = extension.kind;
 			result.extend = extension.extend;
 			result.pools = extension.pools;
@@ -126,12 +126,12 @@ use std::fs;
 use serde_json as js;
 impl From<PathBuf> for MeguScript {
 	fn from(path: PathBuf) -> MeguScript {
-		MeguScript::from_path(path).unwrap()
+		MeguScript::from_path(path, "resource").unwrap()
 	}
 }
 impl From<ScriptFormat> for MeguScript {
 	fn from(format: ScriptFormat) -> MeguScript {
-		MeguScript::from_script_format(format).unwrap()
+		MeguScript::from_script_format(format, "resource").unwrap()
 	}
 }
 
