@@ -5,10 +5,10 @@
 //! ```should_panic
 //! use rna::utils;
 //! 
-//! let loot_a = utils::interpret_file("test/loot_a.ult").unwrap();
-//! let loot_b = utils::interpret_file("test/loot_b.ult").unwrap();
+//! let loot_a = utils::interpret_file("test/loot_a.ult", "resource").unwrap();
+//! let loot_b = utils::interpret_file("test/loot_b.ult", "resource").unwrap();
 //! 
-//! let merged_loot = utils::merge(&[loot_a, loot_b]).unwrap();
+//! let merged_loot = utils::merge(&[loot_a, loot_b], "resource").unwrap();
 //! ```
 
 

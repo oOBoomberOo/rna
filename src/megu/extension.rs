@@ -9,12 +9,12 @@ use std::path::PathBuf;
 /// # Examples
 /// ```
 /// # use rna::Extension;
-/// let creeper_extend = Extension::get_extension("minecraft:entities/creeper").unwrap();
+/// let creeper_extend = Extension::get_extension("minecraft:entities/creeper", "resource").unwrap();
 /// ```
 /// If the input string is not a vanilla's path it will panic
 /// ```should_panic
 /// # use rna::Extension;
-/// let should_panic = Extension::get_extension("this/path/does/not/exists").unwrap();
+/// let should_panic = Extension::get_extension("this/path/does/not/exists", "resource").unwrap();
 /// ```
 #[derive(Clone, PartialEq, Eq, Debug, PartialOrd)]
 pub struct Extension {

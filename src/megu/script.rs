@@ -73,7 +73,7 @@ impl MeguScript {
 	/// # Example
 	/// ```should_panic
 	/// # use rna::MeguScript;
-	/// let script = MeguScript::from_path("path/to/loot_table.ult").unwrap();
+	/// let script = MeguScript::from_path("path/to/loot_table.ult", "resource").unwrap();
 	/// ```
 	pub fn from_path(path: impl Into<PathBuf>, base_path: impl Into<PathBuf>) -> Result<MeguScript, ReadError> {
 		let path = path.into();
