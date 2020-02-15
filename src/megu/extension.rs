@@ -1,5 +1,8 @@
-use super::{Namespace, DecodeError, MeguScript, ReadError};
-use std::path::PathBuf;
+use super::{DecodeError, MeguScript};
+// use std::path::PathBuf;
+use crate::megu::script::{ScriptFormat, ScriptFormatError};
+
+const DATABASE: &str = include_str!("../../resource/database.json");
 
 /// Extension Script of MeguScript
 /// 
@@ -16,22 +19,31 @@ use std::path::PathBuf;
 /// # use rna::Extension;
 /// let should_panic = Extension::get_extension("this/path/does/not/exists").unwrap();
 /// ```
-#[derive(Clone, PartialEq, Eq, Debug, PartialOrd)]
+#[derive(Debug, PartialEq, Clone, Default)]
 pub struct Extension {
-	location: PathBuf
+	// location: PathBuf
+	data: ScriptFormat
 }
 
+use serde_json as js;
+use std::collections::HashMap;
 impl Extension {
-	pub fn new(location: impl Into<PathBuf>) -> Extension {
-		let location = location.into();
-		Extension { location }
+	// pub fn new(location: impl Into<PathBuf>) -> Extension {
+	pub fn new(data: ScriptFormat) -> Extension {
+		// let location = location.into();
+		Extension {
+			// location
+			data
+		}
 	}
 
 	/// Get extension from given Namespace
 	pub fn get_extension(value: impl Into<String>) -> Result<Extension, ExtensionError> {
 		let value = value.into();
-		let namespace = Namespace::decode(&value)?;
+
+		let data: HashMap<String, ScriptFormat> = js::from_str(DATABASE).unwrap();
 	
+		/*
 		let path = PathBuf::from(
 			format!("resource/{}/{}.megu", namespace.prefix, namespace.suffix)
 		);
@@ -39,13 +51,22 @@ impl Extension {
 		if !path.exists() {
 			return Err(ExtensionError::NotFound(value));
 		}
+		*/
+
+		if data.get(&value).is_none() {
+			return Err(ExtensionError::NotFound(value));
+		}
+
+		let data: ScriptFormat = data[&value].clone();
 	
-		Ok(Extension::new(path))
+		// Ok(Extension::new(path))
+		Ok(Extension::new(data))
 	}
 
 	/// Create MeguScript from this Extension
-	pub fn compile(&self) -> Result<MeguScript, ReadError> {
-		MeguScript::from_path(&self.location)
+	pub fn compile(&self) -> Result<MeguScript, ScriptFormatError> {
+		// MeguScript::from_path(&self.location)
+		MeguScript::from_script_format(self.data.clone())
 	}
 }
 

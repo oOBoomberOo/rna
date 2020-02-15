@@ -43,7 +43,7 @@ impl MeguScript {
 	}
 
 	/// Create new MeguScript from `ScriptFormat` which is a template structure for `serde_json`
-	fn from_script_format(format: ScriptFormat) -> Result<MeguScript, ScriptFormatError> {
+	pub(crate) fn from_script_format(format: ScriptFormat) -> Result<MeguScript, ScriptFormatError> {
 		let kind = format.kind;
 		let extend = match format.extend {
 			Some(value) => Some(Extension::get_extension(value)?),
@@ -137,7 +137,7 @@ impl From<ScriptFormat> for MeguScript {
 
 use serde::{Serialize, Deserialize};
 /// Template structure for `serde_json` to use.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, Default)]
 pub struct ScriptFormat {
 	#[serde(rename = "type")]
 	pub kind: Option<String>,
@@ -224,7 +224,7 @@ impl error::Error for ReadError {}
 #[cfg(test)]
 mod tests {
 	use super::*;
-
+/* 
 	#[test]
 	fn create_new_script() {
 		assert_eq!(
@@ -241,7 +241,7 @@ mod tests {
 				remove: Vec::default()
 			}
 		);
-	}
+	} */
 
 	use crate::megu::drop::DropType;
 	#[test]

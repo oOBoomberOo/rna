@@ -1,5 +1,4 @@
 /target
 Cargo.lock
 /test
-/resource/**/*.json
-/resource/**/converter.ts
+/resource

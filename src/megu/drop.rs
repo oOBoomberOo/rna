@@ -153,7 +153,7 @@ use serde::{Serialize, Deserialize};
 /// A template structure for `serde_json` to use.
 /// 
 /// `name` and `children` should never be `Some()` at the same time.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, Default)]
 pub struct DropFormat {
 	pub r#unsafe: Option<bool>,
 	pub r#type: String,
