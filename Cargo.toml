@@ -7,7 +7,7 @@ description = "'Loot-Table Script' interpreter"
 homepage = "https://github.com/oOBoomberOo/rna"
 repository = "https://github.com/oOBoomberOo/rna"
 readme = "README.md"
-keywords = ["loot table", "json", "script", "merge"]
+keywords = ["loot-table", "json", "script", "merge"]
 categories = ["parsing"]
 license = "MIT"
 
