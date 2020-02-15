@@ -71,9 +71,9 @@ impl MeguScript {
 	/// - Serde emit Error (i.e. JSON Error)
 	/// 
 	/// # Example
-	/// ```
+	/// ```should_panic
 	/// # use rna::MeguScript;
-	/// let script = MeguScript::from_path("test/min.megu").unwrap();
+	/// let script = MeguScript::from_path("path/to/loot_table.ult").unwrap();
 	/// ```
 	pub fn from_path(path: impl Into<PathBuf>) -> Result<MeguScript, ReadError> {
 		let path = path.into();

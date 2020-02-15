@@ -2,11 +2,13 @@
 //! 
 //! Loot Table Script is created by [Minecraft Datapacks](https://discord.gg/56ySADc) community to create more robust loot table syntax.
 //! # Examples
-//! ```
-//! let loot_a = rna::interpret_file("test/loot_a.megu").unwrap();
-//! let loot_b = rna::interpret_file("test/loot_b.megu").unwrap();
+//! ```should_panic
+//! use rna::utils;
 //! 
-//! let merged_loot = rna::merge(&[loot_a, loot_b]).unwrap();
+//! let loot_a = utils::interpret_file("test/loot_a.ult").unwrap();
+//! let loot_b = utils::interpret_file("test/loot_b.ult").unwrap();
+//! 
+//! let merged_loot = utils::merge(&[loot_a, loot_b]).unwrap();
 //! ```
 
 mod megu;
