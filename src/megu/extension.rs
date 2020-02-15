@@ -1,9 +1,24 @@
 use super::{Namespace, DecodeError, MeguScript, ReadError};
 use std::path::PathBuf;
 
+/// Extension Script of MeguScript
+/// 
+/// `Extension` will follow /loot command's path convention.  
+/// To refer to `creeper` loot table use `minecraft:entities/creeper`
+/// 
+/// # Examples
+/// ```
+/// # use rna::Extension;
+/// let creeper_extend = Extension::get_extension("minecraft:entities/creeper").unwrap();
+/// ```
+/// If the input string is not a vanilla's path it will panic
+/// ```should_panic
+/// # use rna::Extension;
+/// let should_panic = Extension::get_extension("this/path/does/not/exists").unwrap();
+/// ```
 #[derive(Clone, PartialEq, Eq, Debug, PartialOrd)]
 pub struct Extension {
-	pub location: PathBuf
+	location: PathBuf
 }
 
 impl Extension {
@@ -12,6 +27,7 @@ impl Extension {
 		Extension { location }
 	}
 
+	/// Get extension from given Namespace
 	pub fn get_extension(value: impl Into<String>) -> Result<Extension, ExtensionError> {
 		let value = value.into();
 		let namespace = Namespace::decode(&value)?;
@@ -27,14 +43,18 @@ impl Extension {
 		Ok(Extension::new(path))
 	}
 
+	/// Create MeguScript from this Extension
 	pub fn compile(&self) -> Result<MeguScript, ReadError> {
 		MeguScript::from_path(&self.location)
 	}
 }
 
+/// General error type for `get_extension()` function.
 #[derive(Debug, PartialEq)]
 pub enum ExtensionError {
+	/// Emit when Namespace is invalid
 	DecodeError(DecodeError),
+	/// Emit when cannot find extension with that name
 	NotFound(String)
 }
 

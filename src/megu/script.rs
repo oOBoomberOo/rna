@@ -2,6 +2,8 @@ use super::{Extension, Namespace, DecodeError, MeguDrop, DropFormat, ExtensionEr
 use super::drop;
 use std::error;
 use std::collections::HashMap;
+
+/// MeguScript is a data structure for loot table script
 #[derive(Debug, PartialEq, Clone, Default)]
 pub struct MeguScript {
 	kind: Option<String>,
@@ -13,6 +15,7 @@ pub struct MeguScript {
 type PoolFormat = Result<HashMap<Namespace, MeguDrop>, drop::DropTypeError>;
 
 impl MeguScript {
+	/// Create new MeguScript
 	fn new(kind: impl Into<Option<String>>, extend: impl Into<Option<Extension>>, pools: impl Into<HashMap<Namespace, MeguDrop>>, remove: impl Into<Vec<Namespace>>) -> MeguScript {
 		let kind = kind.into();
 		let extend = extend.into();
@@ -21,6 +24,7 @@ impl MeguScript {
 		MeguScript { kind, extend, pools, remove }
 	}
 
+	/// Convert JSON Template of loot table's pools into `MeguDrop`
 	fn from_pools_format(format: HashMap<String, DropFormat>) -> PoolFormat {
 		let mut result = HashMap::default();
 
@@ -38,6 +42,7 @@ impl MeguScript {
 		Ok(result)
 	}
 
+	/// Create new MeguScript from `ScriptFormat` which is a template structure for `serde_json`
 	fn from_script_format(format: ScriptFormat) -> Result<MeguScript, ScriptFormatError> {
 		let kind = format.kind;
 		let extend = match format.extend {
@@ -57,6 +62,19 @@ impl MeguScript {
 		Ok(result)
 	}
 
+	/// Create new MeguScript from `path`
+	/// 
+	/// # Errors
+	/// This method can fail when:
+	/// - ScriptFormat emit error (i.e. Invalid Syntax)
+	/// - I/O emit error (i.e. Cannot read file from path)
+	/// - Serde emit Error (i.e. JSON Error)
+	/// 
+	/// # Example
+	/// ```
+	/// # use rna::MeguScript;
+	/// let script = MeguScript::from_path("test/min.megu").unwrap();
+	/// ```
 	pub fn from_path(path: impl Into<PathBuf>) -> Result<MeguScript, ReadError> {
 		let path = path.into();
 		let content = fs::read(path)?;
@@ -66,6 +84,8 @@ impl MeguScript {
 		Ok(result)
 	}
 
+	/// Merge this script to `other` script.
+	/// This method will mutate `other` but not `self`.
 	pub fn merge(&self, other: &mut MeguScript) {
 		for (key, value) in &self.pools {
 			other.pools.insert(key.clone(), value.clone());
@@ -74,6 +94,7 @@ impl MeguScript {
 		other.remove.append(&mut self.remove.clone());
 	}
 
+	/// Compile `Extension` inside `extend` (if not `None`).
 	pub fn compile(&self) -> Result<MeguScript, Box<dyn error::Error>> {
 		let mut result: MeguScript = MeguScript::default();
 
@@ -90,6 +111,7 @@ impl MeguScript {
 		Ok(result)
 	}
 
+	/// Search through `pools` field and remove any `Drop` that's listed inside `remove` field.
 	pub fn remove_drops(&mut self) -> Vec<Option<MeguDrop>> {
 		self.remove
 			.clone()
@@ -114,19 +136,24 @@ impl From<ScriptFormat> for MeguScript {
 }
 
 use serde::{Serialize, Deserialize};
+/// Template structure for `serde_json` to use.
 #[derive(Serialize, Deserialize)]
-struct ScriptFormat {
+pub struct ScriptFormat {
 	#[serde(rename = "type")]
-	kind: Option<String>,
-	extend: Option<String>,
-	pools: HashMap<String, DropFormat>,
-	remove: Option<Vec<String>>
+	pub kind: Option<String>,
+	pub extend: Option<String>,
+	pub pools: HashMap<String, DropFormat>,
+	pub remove: Option<Vec<String>>
 }
 
+/// General error type for decoding MeguScript
 #[derive(Debug, PartialEq)]
 pub enum ScriptFormatError {
+	/// ExtensionError emit when there's something wrong in the `extend` field.
 	Extension(ExtensionError),
+	/// DropTypeError emit when there's something wrong in the `type` field in a `MeguDrop`
 	DropType(drop::DropTypeError),
+	/// DecodeError emit when there's an error in Namespace
 	Decode(DecodeError)
 }
 
@@ -156,10 +183,14 @@ impl fmt::Display for ScriptFormatError {
 }
 
 use std::io;
+/// General error type for `from_path()` function
 #[derive(Debug)]
 pub enum ReadError {
+	/// Emit when there are syntax error in `ScriptFormat`
 	ScriptFormat(ScriptFormatError),
+	/// Emit when there are I/O error (i.e. cannot read file)
 	Io(io::Error),
+	/// Emit when there are JSON error (i.e. invalid JSON syntax)
 	Serde(js::Error)
 }
 
@@ -205,9 +236,7 @@ mod tests {
 			),
 			MeguScript {
 				kind: None,
-				extend: Some(Extension {
-					location: PathBuf::from("minecraft/entities/creeper")
-				}),
+				extend: Some(Extension::new("minecraft/entities/creeper")),
 				pools: HashMap::default(),
 				remove: Vec::default()
 			}

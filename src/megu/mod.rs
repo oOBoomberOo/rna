@@ -1,7 +1,7 @@
-mod script;
-mod drop;
-mod namespace;
-mod extension;
+pub(crate) mod script;
+pub(crate) mod drop;
+pub(crate) mod namespace;
+pub(crate) mod extension;
 
 pub use script::{MeguScript, ReadError};
 pub use drop::{MeguDrop, DropType, DropFormat};
@@ -9,8 +9,16 @@ pub use namespace::{Namespace, DecodeError};
 pub use extension::{Extension, ExtensionError};
 
 use std::path::PathBuf;
-type MeguResult<T> = Result<T, MeguError>;
+/// Shorthand for defining a `Result` that can fail with `MeguError` type
+pub type MeguResult<T> = Result<T, MeguError>;
 
+/// Read and Interpret syntax from the given path.
+/// 
+/// # Errors
+/// This method can fail when:
+/// - File does not exists
+/// - Path is a directory
+/// - There is syntax error inside the file
 pub fn interpret_file(path: impl Into<PathBuf>) -> MeguResult<MeguScript> {
 	let path: PathBuf = path.into();
 	if !path.exists() {
@@ -29,10 +37,14 @@ pub fn interpret_file(path: impl Into<PathBuf>) -> MeguResult<MeguScript> {
 	Ok(result)
 }
 
+/// General error type for `interpret_file()` function
 #[derive(Debug)]
 pub enum MeguError {
+	/// Emit when `path` does not exists
 	NotExist(PathBuf),
+	/// Emit when `path` is not a file
 	NotAFile(PathBuf),
+	/// Emit when file contain syntax error
 	Read((PathBuf, ReadError))
 }
 
@@ -55,6 +67,7 @@ impl fmt::Display for MeguError {
 	}
 }
 
+/// Merge MeguScripts together.
 pub fn merge(scripts: &[MeguScript]) -> Result<MeguScript, Box<dyn Error>> {
 	let mut result: MeguScript = MeguScript::default();
 

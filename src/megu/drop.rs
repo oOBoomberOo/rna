@@ -1,3 +1,4 @@
+/// Possible type within `type` field of MeguDrop.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DropType {
 	Item,
@@ -16,39 +17,10 @@ impl Default for DropType {
 	}
 }
 
-use serde_json::Value;
-#[derive(Debug, Clone, PartialEq)]
-pub struct MeguDrop {
-	r#unsafe: bool,
-	kind: DropType,
-	name: Option<String>,
-	children: Option<Vec<MeguDrop>>,
-	conditions: Vec<Value>,
-	functions: Vec<Value>
-}
-
-use super::{Namespace, DecodeError};
-impl MeguDrop {
-	pub fn new(kind: impl Into<DropType>, name: impl Into<Option<String>>, children: impl Into<Option<Vec<MeguDrop>>>, conditions: impl Into<Vec<Value>>, functions: impl Into<Vec<Value>>, r#unsafe: bool) -> MeguDrop {
-		let kind = kind.into();
-		let name = name.into();
-		let children = children.into();
-		let conditions = conditions.into();
-		let functions = functions.into();
-		
-		MeguDrop { kind, name, children, conditions, functions, r#unsafe }
-	}
-
-	fn is_unsafe(kind: DropType) -> bool {
-		match kind {
-			DropType::Alternatives |
-			DropType::Group |
-			DropType::Sequence
-			=> true,
-			_ => false
-		}
-	}
-
+impl DropType {
+	/// Get DropType from Namespace.
+	/// 
+	/// This method can fail if DropType is not valid.
 	pub fn get_drop_type(value: impl Into<String>) -> Result<DropType, DropTypeError> {
 		let value = value.into();
 		let namespace = Namespace::decode(&value)?;
@@ -70,24 +42,54 @@ impl MeguDrop {
 
 		Ok(kind)
 	}
+}
 
+use serde_json::Value;
+/// A data structure representing each item in the `pools` field.
+#[derive(Debug, Clone, PartialEq)]
+pub struct MeguDrop {
+	r#unsafe: bool,
+	kind: DropType,
+	name: Option<String>,
+	children: Option<Vec<MeguDrop>>,
+	conditions: Vec<Value>,
+	functions: Vec<Value>
+}
+
+use super::{Namespace, DecodeError};
+impl MeguDrop {
+	pub(crate) fn new(kind: impl Into<DropType>, name: impl Into<Option<String>>, children: impl Into<Option<Vec<MeguDrop>>>, conditions: impl Into<Vec<Value>>, functions: impl Into<Vec<Value>>, r#unsafe: bool) -> MeguDrop {
+		let kind = kind.into();
+		let name = name.into();
+		let children = children.into();
+		let conditions = conditions.into();
+		let functions = functions.into();
+		
+		MeguDrop { kind, name, children, conditions, functions, r#unsafe }
+	}
+
+	/// Check for "unsafe" type which is usually a type that can create nested structure inside loot table.
+	fn is_unsafe(kind: DropType) -> bool {
+		match kind {
+			DropType::Alternatives |
+			DropType::Group |
+			DropType::Sequence
+			=> true,
+			_ => false
+		}
+	}
+
+	/// Create MeguDrop from a drop template for `serde_json` to interpret
+	/// 
+	/// This method can fail if DropType is not valid.
 	pub fn from_drop_format(format: DropFormat) -> Result<MeguDrop, DropTypeError> {
-		let kind = MeguDrop::get_drop_type(&format.r#type)?;
+		let kind = DropType::get_drop_type(&format.r#type)?;
 		let name = format.name;
-		let children = match format.children {
-			None => None,
-			Some(childs) => {
-				let result: Result<Vec<_>, _> = childs.into_iter().map(MeguDrop::from_drop_format).collect();
-				Some(result?)
-			}
-		};
+		let children = MeguDrop::get_children(format.children)?;
 		let conditions = format.conditions.unwrap_or_default();
 		let functions = format.functions.unwrap_or_default();
 
-		let r#unsafe = match format.r#unsafe {
-			Some(value) => value,
-			None => false
-		};
+		let r#unsafe = format.r#unsafe.unwrap_or_default();
 
 		if r#unsafe != MeguDrop::is_unsafe(kind) {
 			return Err(DropTypeError::NotAllow(format.r#type));
@@ -97,6 +99,20 @@ impl MeguDrop {
 		
 		Ok(result)
 	}
+
+	/// Safely convert `DropFormat` to `MeguDrop`
+	fn get_children(format: Option<Vec<DropFormat>>) -> Result<Option<Vec<MeguDrop>>, DropTypeError> {
+		match format {
+			None => Ok(None),
+			Some(childs) => {
+				let result: Result<Vec<_>, _> = childs.into_iter().map(MeguDrop::from_drop_format).collect();
+
+				// This is probably the stupidiest syntax I have ever seen.
+				// TODO: Fix this
+				Ok(Some(result?))
+			}
+		}
+	}
 }
 
 impl From<DropFormat> for MeguDrop {
@@ -105,10 +121,14 @@ impl From<DropFormat> for MeguDrop {
 	}
 }
 
+/// General error type for `DropType`
 #[derive(Debug, PartialEq)]
 pub enum DropTypeError {
+	/// Emit when it cannot decode Namespace
 	DecodeError(DecodeError),
+	/// Emit when you're trying to use unsafe type in a Drop without `"unsafe": true` keyword
 	NotAllow(String),
+	/// Emit when `type` field is not a valid type
 	InvalidType(String)
 }
 
@@ -130,14 +150,17 @@ impl fmt::Display for DropTypeError {
 }
 
 use serde::{Serialize, Deserialize};
+/// A template structure for `serde_json` to use.
+/// 
+/// `name` and `children` should never be `Some()` at the same time.
 #[derive(Serialize, Deserialize)]
 pub struct DropFormat {
-	r#unsafe: Option<bool>,
-	r#type: String,
-	name: Option<String>,
-	children: Option<Vec<DropFormat>>,
-	functions: Option<Vec<Value>>,
-	conditions: Option<Vec<Value>>
+	pub r#unsafe: Option<bool>,
+	pub r#type: String,
+	pub name: Option<String>,
+	pub children: Option<Vec<DropFormat>>,
+	pub functions: Option<Vec<Value>>,
+	pub conditions: Option<Vec<Value>>
 }
 
 #[cfg(test)]
@@ -146,12 +169,12 @@ mod tests {
 
 	#[test]
 	fn get_drop_type_from_string() {
-		assert_eq!(MeguDrop::get_drop_type("minecraft:item"), Ok(DropType::Item));
+		assert_eq!(DropType::get_drop_type("minecraft:item"), Ok(DropType::Item));
 	}
 
 	#[test]
 	fn get_drop_type_from_string_without_prefix() {
-		assert_eq!(MeguDrop::get_drop_type("item"), Ok(DropType::Item));
+		assert_eq!(DropType::get_drop_type("item"), Ok(DropType::Item));
 	}
 
 	#[test]
