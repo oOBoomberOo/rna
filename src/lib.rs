@@ -10,10 +10,9 @@
 //! ```
 
 mod megu;
+mod util;
 
 pub use megu::{
-	interpret_file,
-	merge,
 	MeguScript,
 	MeguDrop,
 	Namespace,
@@ -27,6 +26,7 @@ pub mod error {
 	pub use crate::megu::namespace::DecodeError;
 	pub use crate::megu::extension::ExtensionError;
 	pub use crate::megu::drop::DropTypeError;
+	pub use crate::util::MetaError;
 }
 
 /// MeguScript module
@@ -47,4 +47,10 @@ pub mod extension {
 /// MeguDrop module
 pub mod drop {
 	pub use crate::megu::drop::{MeguDrop, DropType, DropFormat, DropTypeError};
+}
+
+/// Utility module
+pub mod utils {
+	pub use crate::megu::{interpret_file, merge, MeguResult, MeguError};
+	pub use crate::util::{check_meta, is_loot_table_script, MetaError};
 }

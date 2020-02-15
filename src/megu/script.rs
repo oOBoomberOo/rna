@@ -95,7 +95,7 @@ impl MeguScript {
 	}
 
 	/// Compile `Extension` inside `extend` (if not `None`).
-	pub fn compile(&self) -> Result<MeguScript, Box<dyn error::Error>> {
+	pub fn compile(&self) -> Result<MeguScript, ReadError> {
 		let mut result: MeguScript = MeguScript::default();
 
 		if let Some(extension) = &self.extend {

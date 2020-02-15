@@ -45,7 +45,9 @@ pub enum MeguError {
 	/// Emit when `path` is not a file
 	NotAFile(PathBuf),
 	/// Emit when file contain syntax error
-	Read((PathBuf, ReadError))
+	Read((PathBuf, ReadError)),
+	/// `MeguError::Read` but emit in `merge()` function
+	Merge(ReadError)
 }
 
 use std::fmt;
@@ -62,17 +64,21 @@ impl fmt::Display for MeguError {
 		match self {
 			MeguError::NotExist(path) => write!(f, "'{}' does not exists", path.display().to_string().cyan()),
 			MeguError::NotAFile(path) => write!(f, "'{}' is not a file", path.display().to_string().cyan()),
-			MeguError::Read((path, error)) => write!(f, "[{}] {}", path.display().to_string().green(), error)
+			MeguError::Read((path, error)) => write!(f, "[{}] {}", path.display().to_string().green(), error),
+			MeguError::Merge(error) => write!(f, "{}", error)
 		}
 	}
 }
 
 /// Merge MeguScripts together.
-pub fn merge(scripts: &[MeguScript]) -> Result<MeguScript, Box<dyn Error>> {
+pub fn merge(scripts: &[MeguScript]) -> MeguResult<MeguScript> {
 	let mut result: MeguScript = MeguScript::default();
 
 	for script in scripts {
-		let script = script.compile()?;
+		let script = match script.compile() {
+			Ok(script) => script,
+			Err(error) => return Err(MeguError::Merge(error))
+		};
 		script.merge(&mut result);
 	}
 
