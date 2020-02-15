@@ -7,7 +7,7 @@ use std::path::PathBuf;
 /// To refer to `creeper` loot table use `minecraft:entities/creeper`
 /// 
 /// # Examples
-/// ```
+/// ```should_panic
 /// # use rna::Extension;
 /// let creeper_extend = Extension::get_extension("minecraft:entities/creeper", "resource").unwrap();
 /// ```
