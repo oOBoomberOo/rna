@@ -3,8 +3,17 @@ name = "rna"
 version = "0.1.0"
 authors = ["Boomber <boomberisalreadytaken@gmail.com>"]
 edition = "2018"
+description = "'Loot-Table Script' interpreter"
+homepage = "https://github.com/oOBoomberOo/rna"
+repository = "https://github.com/oOBoomberOo/rna"
+readme = "README.md"
+keywords = ["loot table", "json", "script", "merge"]
+categories = ["parsing"]
+license = "MIT"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[badges]
+travis-ci = { repository = "https://github.com/oOBoomberOo/rna", branch = "master" }
+maintenance = { status = "experimental" }
 
 [dependencies]
 colored = "1.9.2"

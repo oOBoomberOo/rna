@@ -1,4 +1,4 @@
-# RNA
+# RNA [![Discord](https://img.shields.io/discord/428791010244558850?color=blue&label=Discord&logo=discord)](https://discord.gg/56ySADc)
 
 RNA is a library for interpreting "Loot Table Script" designed by [Minecraft Datapacks](https://discord.gg/56ySADc) community.
 
